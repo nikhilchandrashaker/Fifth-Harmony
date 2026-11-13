@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fifth Harmony: a career in data</title>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF3F8;--ink:#0B1F33;--mute:#546A82;--card:#fff;--line:#CFDBE8;--pink:#8B3FD9;--sky:#E8579A;--sun:#FFD166;--off:#DCE6F1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1626;--ink:#EAF1FA;--mute:#8FA3BD;--card:#12233A;--line:#24405F;--off:#1B3350}}
+:root[data-theme="dark"]{--bg:#0B1626;--ink:#EAF1FA;--mute:#8FA3BD;--card:#12233A;--line:#24405F;--off:#1B3350}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "DM Sans",system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+h1,h2{font-family:"Bagel Fat One","DM Sans",system-ui,sans-serif;font-weight:400;margin:0;letter-spacing:.01em}
+h1{font-size:clamp(44px,10vw,92px);line-height:.95}
+h2{font-size:26px;margin-bottom:6px}
+.sub{color:var(--mute);max-width:60ch;margin:12px 0 0}
+section{margin-top:44px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+.lineup{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 6px}
+.m{width:76px;text-align:center;font-size:13px;color:var(--mute);transition:opacity .35s}
+.m i{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 6px;border-radius:50%;font:400 22px "Bagel Fat One",sans-serif;font-style:normal;color:#fff;transition:background .35s,transform .35s}
+.m.off{opacity:.45}.m.off i{background:var(--off)!important;color:var(--mute);transform:scale(.86)}
+button.m{all:unset;cursor:pointer;box-sizing:border-box;width:76px;text-align:center;font-size:13px;color:var(--mute);transition:opacity .35s}
+button.m:focus-visible{outline:3px solid var(--sky);outline-offset:4px;border-radius:12px}
+button.m[aria-expanded=true] i{box-shadow:0 0 0 3px var(--bg),0 0 0 6px var(--ink)}
+button.m[aria-expanded=true]{color:var(--ink);font-weight:700}
+.bio{margin-top:14px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px}
+.bio h3{margin:0 0 2px;font:400 22px "Bagel Fat One",sans-serif}
+.bio .meta{color:var(--mute);font-size:14px;margin:0 0 8px}
+.bio p{margin:6px 0;max-width:64ch}
+.bio .st{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--off);font-size:13px;font-weight:700}
+.scrub{margin-top:18px}
+input[type=range]{width:100%;accent-color:var(--pink);height:32px}
+.yrs{display:flex;justify-content:space-between;font-size:13px;color:var(--mute)}
+.yrs button{all:unset;cursor:pointer;padding:4px 6px;border-radius:8px}
+.yrs button[aria-pressed=true]{background:var(--pink);color:#fff;font-weight:700}
+.yrs button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
+.stat{border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.stat b{display:block;font:400 34px/1.1 "Bagel Fat One",sans-serif}
+.stat span{font-size:13px;color:var(--mute)}
+#note{margin:16px 0 0;font-size:17px;min-height:3.2em}
+.era{display:inline-block;padding:3px 12px;border-radius:99px;background:var(--sun);color:#1D1545;font-weight:700;font-size:14px}
+.chartwrap{overflow-x:auto}
+svg text{font-family:"DM Sans",sans-serif;fill:var(--mute);font-size:12px}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--mute);margin-top:6px;flex-wrap:wrap}
+.legend span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;background:var(--c)}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+th{font-weight:700;color:var(--mute);font-size:13px}
+.t{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12px;font-weight:700;color:#fff}
+.t.single{background:var(--sky)}.t.EP{background:var(--pink)}.t.album{background:#7A4DF0}.t.promo{background:#8A83AD}
+.bar{display:grid;grid-template-columns:150px 1fr 24px;gap:10px;align-items:center;font-size:14px;margin:5px 0}
+.bar i{display:block;height:12px;border-radius:6px;background:var(--pink)}
+.fine{font-size:13px;color:var(--mute);margin-top:30px;max-width:70ch}
+.collab{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.collab span{border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>FIFTH HARMONY</h1>
+  <p class="sub">From five solo auditions on The X Factor in 2012 to a surprise reunion in 2025. Drag through the years to see who was in the group, what came out, and which era it was.</p>
+</header>
+
+<section aria-labelledby="h-scrub">
+  <div class="card">
+    <h2 id="h-scrub">Year by year</h2>
+    <div class="lineup" id="lineup"></div>
+    <div class="bio" id="bio" aria-live="polite"></div>
+    <div class="scrub">
+      <input type="range" id="yr" min="2012" max="2026" value="2016" aria-label="Year">
+      <div class="yrs" id="yrs"></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="s-mem">5</b><span>members during the year</span></div>
+      <div class="stat"><b id="s-yr">0</b><span>releases that year</span></div>
+      <div class="stat"><b id="s-cum">0</b><span>releases so far</span></div>
+    </div>
+    <p id="note"></p>
+  </div>
+</section>
+
+<section aria-labelledby="h-rel">
+  <h2 id="h-rel">Release rhythm</h2>
+  <p class="sub">Releases per year from the catalogue below. 2019 to 2024 are empty because the group was on hiatus.</p>
+  <div class="card chartwrap" style="margin-top:14px"><div id="chart"></div>
+    <div class="legend"><span style="--c:var(--sky)">Single</span><span style="--c:var(--pink)">EP</span><span style="--c:#7A4DF0">Album</span><span style="--c:#8A83AD">Promo</span></div></div>
+</section>
+
+<section aria-labelledby="h-cat">
+  <h2 id="h-cat">Catalogue</h2>
+  <p class="sub" id="tot"></p>
+  <div class="tools"><label for="f">Show</label>
+    <select id="f"><option value="all">All years</option><option value="upto">Up to selected year</option><option value="only">Selected year only</option></select>
+    <label for="g">Type</label>
+    <select id="g"><option value="all">All types</option><option>single</option><option>EP</option><option>album</option><option>promo</option></select></div>
+  <div class="card tw"><table><thead><tr><th>Year</th><th>Title</th><th>Type</th><th>Guest or note</th></tr></thead><tbody id="rows"></tbody></table></div>
+</section>
+
+<section aria-labelledby="h-vid">
+  <h2 id="h-vid">Music videos</h2>
+  <p class="sub">Who directed them. Directors follow the source table, where one cell can cover two videos; Por Favor has no director credit.</p>
+  <div class="card" id="dirs" style="margin-top:14px"></div>
+  <div class="card tw" style="margin-top:12px"><table><thead><tr><th>Year</th><th>Video</th><th>Director</th></tr></thead><tbody id="vids"></tbody></table></div>
+</section>
+
+<section aria-labelledby="h-live">
+  <h2 id="h-live">Tours, TV and milestones</h2>
+  <div class="card tw" style="margin-top:14px"><table><thead><tr><th>Year</th><th>Event</th><th>Detail</th></tr></thead><tbody id="live"></tbody></table></div>
+</section>
+
+<section aria-labelledby="h-awd">
+  <h2 id="h-awd">Awards</h2>
+  <p class="sub">One award with a stated result. Wikipedia’s lead also credits ten Teen Choice Awards and the most Kids’ Choice wins for a girl group, but the individual ceremony rows were not retrieved, so they are not listed.</p>
+  <div class="card tw" style="margin-top:14px"><table><thead><tr><th>Year</th><th>Award</th><th>Category (result)</th></tr></thead><tbody id="awd"></tbody></table></div>
+</section>
+
+<section aria-labelledby="h-col">
+  <h2 id="h-col">Who they worked with</h2>
+  <div class="collab" id="collab"></div>
+</section>
+
+<p class="fine">Built from Wikipedia’s Fifth Harmony discography and tour articles, with press reports (Billboard, Stereogum, Complex, Yahoo Entertainment and others) for the 2012 formation, the hiatus and the 2025 and 2026 events. The source’s counts mostly match its tables: 12 singles including one as featured artist, 11 promotional singles (Noche de Paz is listed in a separate table and added here), 6 EPs and 17 videos. Where the article text and a table differ on certifications (Worth It, Work from Home), the table is followed. Some dates are only a month or a year, and the lineup for year-only releases follows the year. Birth dates and hometowns were not retrieved, so they are left out. Comeback reports are labelled as reported or teaser-only. No streaming data is included.</p>
+</main>
+
+<script>
+const members=[{"n":"Ally Brooke","i":"AB","c":"#E0489B","from":2012,"end":2026},{"n":"Normani","i":"N","c":"#7A4DF0","from":2012,"end":2026},{"n":"Dinah Jane","i":"DJ","c":"#2BB3A6","from":2012,"end":2026},{"n":"Lauren Jauregui","i":"LJ","c":"#F2A900","from":2012,"end":2026},{"n":"Camila Cabello","i":"CC","c":"#2F7DF0","from":2012,"end":2016}];
+const rel=[[2013,"Miss Movin’ On","single","Debut single. Charts: US Hot 100 #76; US Mainstream Top 40 #27; NZ #27. Certified: RIAA Gold; RMNZ Gold"],[2013,"Better Together","EP","Oct 18. Debut EP. Target copies added One Wish; the iTunes edition added Me & My Girls. Charts: US #6; NZ #18"],[2013,"Me & My Girls","promo","Performed on season 3 of The X Factor. Charts: US Bubbling Under #4"],[2013,"Better Together","promo",""],[2013,"Juntos","EP","Nov 8. Spanish-language version of Better Together. Charts: US Latin #2"],[2013,"Juntos: Acoustic","EP","Nov 8. Charts: US Latin #12"],[2013,"Better Together: Acoustic","EP","Nov 15. Charts: US #189"],[2013,"Better Together: The Remixes","EP","Nov 25. Charts: US Dance #20"],[2014,"Boss","single","First top-50 Hot 100 entry. Charts: Hot 100 #43; UK #21; CAN #75; SPA #37. Certified: RIAA Platinum; BPI Silver; RMNZ Gold"],[2014,"Sledgehammer","single","First top-40 Hot 100 entry. Charts: Hot 100 #40; AUS #88; CAN #63; NZ #36; Adult Pop #36. Certified: RIAA Platinum; MC Gold; RMNZ Gold; IFPI SWE Gold"],[2014,"Them Girls Be Like","promo",""],[2014,"All I Want for Christmas Is You","promo","Charts: US Bubbling Under #71"],[2014,"Noche de Paz","promo","Listed in a separate table in the source. Charts: US Latin Digital #23"],[2015,"Reflection","album","Jan 30. Debut album. US sales 155,000. Charts: US #5; CAN #8; NZ #8; SPA #9; UK #18; AUS #16. Certified: RIAA Platinum; BPI Silver; MC Gold; RMNZ Platinum"],[2015,"Worth It","single","with Kid Ink. Sleeper hit: debuted at #82. Source text says 4x Platinum in the US, its table 3x. Charts: Hot 100 #12; UK #3; AUS #9; CAN #12; GER #16. Certified: RIAA 3x Platinum; ARIA 2x Platinum; BPI Platinum; MC 2x Platinum; RMNZ 2x Platinum"],[2015,"I’m in Love with a Monster","single","Released a month before the film; only a bonus track on the Japanese edition of Reflection"],[2016,"Work from Home","single","Feb 26. with Ty Dolla $ign. Highest-charting single; video over 2 billion views per the source. Charts: Hot 100 #4; NZ #1; UK #2; AUS #3; CAN #4. Certified: RIAA 5x Platinum; ARIA 6x Platinum; BPI 3x Platinum; MC 5x Platinum; RMNZ 5x Platinum"],[2016,"The Life","promo","Charts: US Bubbling Under #1; UK #97"],[2016,"Write on Me","promo","Charts: UK #173"],[2016,"7/27","album","May 27. Second album. About 1.6 million sold worldwide, 200,000 in the US. Charts: US #4; CAN #3; SPA #1; UK #6; AUS #8; NZ #8. Certified: RIAA Platinum; BPI Gold; MC Platinum; RMNZ Platinum"],[2016,"All in My Head (Flex)","single","May 31. with Fetty Wap. Charted again in March 2024 thanks to TikTok, per press reports. Charts: Hot 100 #24; NZ #8; UK #25; AUS #19; CAN #21. Certified: RIAA Platinum; ARIA Platinum; BPI Gold; MC Platinum; RMNZ 2x Platinum"],[2016,"That’s My Girl","single","Charts: Hot 100 #73; UK #26; AUS #54; NZ Heatseekers #5. Certified: RIAA Gold; BPI Platinum; MC Gold; RMNZ Platinum"],[2016,"Sin Contrato","single","with Maluma (lead artist). Fifth Harmony featured. Charts: US Latin #7; Latin Airplay #1; Latin Pop #2; COL #3. Certified: FIMI Gold; PROMUSICAE Platinum"],[2016,"Santa Claus Is Coming to Town","promo","with DNCE and others. Live all-star recording led by DNCE"],[2017,"Down","single","Jun. with Gucci Mane. First single after Camila Cabello left. Charts: Hot 100 #42; UK #47; CAN #46; NZ Heatseekers #3. Certified: RIAA Gold; BPI Silver; MC Gold; RMNZ Gold"],[2017,"Angel","promo","Produced by Skrillex and Poo Bear; video out August 11. Charts: US Bubbling Under #12; NZ Heatseekers #4"],[2017,"Fifth Harmony","album","Aug 25. Third album, self-titled. Charts: US #4; CAN #7; SPA #1; UK #10; AUS #9; NZ #7"],[2017,"He Like That","single","with French Montana (remix). Video out August 25. Charts: US Bubbling Under #1; NZ Heatseekers #3; CAN #75"],[2017,"Deliver","promo","Video out September 8"],[2017,"Por Favor","single","with Pitbull. Third single from the Spotify reissue of the album"],[2017,"Can You See","promo","Oct"],[2017,"Spotify Singles","EP","Dec 6. Live He Like That and a cover of Calvin Harris’s Feels"],[2018,"Don’t Say You Love Me","promo","Video credited 2018"]];
+const vid=[[2013,"Miss Movin’ On","Hannah Lux Davis"],[2013,"Me & My Girls","Hannah Lux Davis"],[2014,"Boss","Fatima Robinson"],[2014,"Sledgehammer","Fatima Robinson"],[2014,"All I Want for Christmas Is You","Nigel Dick"],[2015,"Worth It","Cameron Duddy"],[2015,"I’m in Love with a Monster","Matt Stawski"],[2016,"Work from Home","Director X"],[2016,"Write on Me","Sam Lecca"],[2016,"All in My Head (Flex)","Director X"],[2016,"That’s My Girl","Hannah Lux Davis"],[2017,"Down","James Larese"],[2017,"Angel","David Camarena"],[2017,"He Like That","James Larese"],[2017,"Deliver","David Camarena"],[2017,"Por Favor","Not credited in source"],[2018,"Don’t Say You Love Me","P. R. Brown"]];
+const live=[[2012,"Formed on The X Factor","Five solo auditioners were combined on season 2; named Fifth Harmony in November after performing as 1432"],[2012,"Finished third on The X Factor","December, final song The Beatles’ Let It Be"],[2013,"Signed to Syco and Epic","Joint deal reported in January"],[2013,"Demi Lovato Neon Lights Tour","Opening act; also on the American Music Awards red carpet"],[2014,"Fifth Times a Charm Tour","Small-scale headlining tour"],[2015,"The Reflection Tour","First major tour, announced January 7, 2015; ran into 2016"],[2016,"The 7/27 Tour","June 22, 2016 to April 8, 2017; 72 shows. The Asian leg was announced after Cabello left"],[2016,"Camila Cabello leaves","Announced December 19, the day after the iHeartRadio Jingle Ball date in Florida. Billboard’s timeline places their last quintet show at New Year’s Rockin’ Eve instead"],[2017,"PSA Tour","Listed in the 7/27 Tour article’s tour chronology, 2017 to 2018"],[2017,"Normani signs a solo deal","October, per a later Complex report"],[2018,"Hiatus announced","March 19: the four members announce an indefinite break to pursue solo work, after finishing planned shows"],[2025,"Reunion talks reported","The Hollywood Reporter, May 29: talks to reunite without Cabello around the 10th anniversary of 7/27"],[2025,"Surprise reunion performance","Ally Brooke, Normani, Dinah Jane and Lauren Jauregui joined the Jonas Brothers in Dallas on August 31 for Worth It and Work from Home"],[2026,"Anniversary teaser","July 24: the group’s Instagram, silent for over 10 months, posts a teaser for the formation anniversary. Nothing further was confirmed in the sources found"]];
+const awd=[[2015,"Nickelodeon Kids’ Choice Awards","Favorite New Artist — Won"]];
+const notes={"2012":["X Factor","Five solo auditioners are combined on season 2 of The X Factor US. They perform as 1432, take the name Fifth Harmony in November and finish third in December."],"2013":["Debut EP era","They sign to Syco and Epic in January. “Miss Movin’ On” leads the Better Together EP (October 18, No. 6 on the Billboard 200), followed by Spanish-language, acoustic and remix editions in November."],"2014":["Reflection era","“Boss” and “Sledgehammer” arrive and both later go Platinum in the US. A Christmas cover and the promotional “Them Girls Be Like” round out the year."],"2015":["Reflection era","Reflection arrives January 30 and debuts at No. 5. “Worth It” with Kid Ink climbs to No. 12 on the Hot 100 and No. 3 in the UK, and “I’m in Love with a Monster” appears for Hotel Transylvania 2. They win Favorite New Artist at the Kids’ Choice Awards."],"2016":["7/27 era","“Work from Home” (February 26) becomes the biggest single: No. 4 in the US, No. 1 in New Zealand. 7/27 follows on May 27 at No. 4. Camila Cabello announces her departure on December 19."],"2017":["Quartet","The first year as four: “Down” with Gucci Mane in June, then the self-titled Fifth Harmony on August 25, No. 4 on the Billboard 200 and No. 1 in Spain. Normani signs a solo deal in October."],"2018":["Hiatus announced","“Don’t Say You Love Me” gets a video, and on March 19 the four announce an indefinite hiatus to pursue solo work once their planned shows are done."],"2019":["Hiatus","On hiatus. The discography lists no new group releases."],"2020":["Hiatus","On hiatus. The discography lists no new group releases."],"2021":["Hiatus","On hiatus. The discography lists no new group releases."],"2022":["Hiatus","On hiatus. The discography lists no new group releases."],"2023":["Hiatus","On hiatus. The discography lists no new group releases."],"2024":["Hiatus","“All in My Head (Flex)” charts again in March thanks to TikTok, and members say they are open to reuniting someday. No new group releases."],"2025":["Reunion","On May 29 The Hollywood Reporter reports talks to reunite without Cabello. On August 31 Ally Brooke, Normani, Dinah Jane and Lauren Jauregui perform together for the first time since 2018, as guests at a Jonas Brothers show in Dallas."],"2026":["Comeback tease","Reports point to a comeback around the 10th anniversary of 7/27 and “Work from Home,” possibly with a tour and documentary. On July 24 the group posts a teaser for its anniversary after 10 months of silence. Nothing more was confirmed in the sources found."]};
+const bios={"AB":{"born":"Miami-based group","role":"Original member","txt":["Brooke auditioned for The X Factor as a solo act in 2012, one of five put together as Fifth Harmony.","She featured on Topic’s “Perfect” in January 2018. Her husband, music executive Will Bracey, is reported to be leading reunion plans."]},"N":{"born":"Full name Normani Kordei Hamilton","role":"First to sign a solo deal","txt":["Normani auditioned in 2012 and signed a solo deal in October 2017, according to a later Complex report.","In February 2018 she teamed with Khalid on “Love Lies” for the Love, Simon soundtrack. Her debut solo album Dopamine came out in 2024."]},"DJ":{"born":"Full name Dinah Jane Hansen","role":"Original member","txt":["Dinah Jane auditioned in 2012 as a solo act and stayed through the hiatus announcement.","In 2024 she said she was glad people were valuing the group’s music again."]},"LJ":{"born":"Jauregui","role":"Original member","txt":["Lauren Jauregui auditioned in 2012 and was one of the four who continued after Cabello left.","In 2024 she said her energy was on her solo music, with an album due that year."]},"CC":{"born":"Camila Cabello","role":"Left in December 2016","txt":["Cabello announced her exit on December 19, 2016, the day after the group’s last scheduled show of the year. Her solo debut album Camila arrived in January 2018 with “Never Be the Same.”","She was not part of the 2025 reunion; she reacted with heart emojis on the group’s Instagram."]}};
+let sel=null;
+const types=["single","EP","album","promo"],col={single:"var(--sky)",EP:"var(--pink)",album:"#7A4DF0",promo:"#8A83AD"};
+const $=id=>document.getElementById(id);
+const yearsList=[2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+const count=y=>rel.filter(r=>r[0]===y).length;
+$("yrs").innerHTML=yearsList.map(y=>`<button data-y="${y}" aria-pressed="false">${y}</button>`).join("");
+$("yrs").onclick=e=>{const b=e.target.closest("button");if(b){$("yr").value=b.dataset.y;update()}};
+$("yr").oninput=update;$("f").onchange=table;$("g").onchange=table;
+
+function chart(sel){
+ const W=640,H=250,pl=30,pb=26,pt=10,n=yearsList.length,bw=Math.floor((W-pl)/n*0.62),gap=(W-pl-bw*n)/n,max=Math.max(...yearsList.map(count),1);
+ const sh=v=>(H-pb-pt)*v/max;let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:520px" role="img" aria-label="Releases per year">`;
+ for(let t=0;t<=max;t+=(max>8?4:2)){const y=H-pb-sh(t);s+=`<line x1="${pl}" x2="${W}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="0" y="${y+4}">${t}</text>`}
+ yearsList.forEach((y,k)=>{const x=pl+gap/2+k*(bw+gap);let yy=H-pb;
+  types.forEach(t=>{const n=rel.filter(r=>r[0]===y&&r[2]===t).length;if(n){const h=sh(n);yy-=h;s+=`<rect x="${x}" y="${yy}" width="${bw}" height="${h}" rx="4" fill="${col[t]}" opacity="${y===sel?1:.45}"/>`}});
+  if(!count(y))s+=`<text x="${x+bw/2}" y="${H-pb-6}" text-anchor="middle">none</text>`;
+  s+=`<text x="${x+bw/2}" y="${H-8}" text-anchor="middle" ${y===sel?'style="fill:var(--ink);font-weight:700"':''}>${y}</text>`});
+ return s+"</svg>"}
+
+function table(){
+ const y=+$("yr").value,f=$("f").value,g=$("g").value;
+ const list=rel.filter(r=>(f==="all"||(f==="upto"&&r[0]<=y)||(f==="only"&&r[0]===y))&&(g==="all"||r[2]===g));
+ $("rows").innerHTML=list.length?list.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td><span class="t ${r[2]}">${r[2]}</span></td><td>${r[3]}</td></tr>`).join(""):`<tr><td colspan="4">Nothing matches. Try “All years” or “All types”.</td></tr>`}
+
+$("lineup").onclick=e=>{const b=e.target.closest("button");if(!b)return;sel=sel===b.dataset.i?null:b.dataset.i;update()};
+function showBio(y){
+ if(!sel){$("bio").innerHTML='<span class="meta">Select a member to read their bio.</span>';$("bio").style.cssText="";return}
+ const m=members.find(x=>x.i===sel),b=bios[sel],active=y>=m.from&&y<=m.end;
+ $("bio").style.cssText="border:2px solid "+m.c+";background:color-mix(in srgb,"+m.c+" 14%,var(--card))";
+ const st=m.i==="CC"&&y>2016?"Left the group in December 2016":m.i==="CC"&&y===2016?"In the group until December 19":y<2018?"In the group in "+y:y===2018?"In the group; hiatus announced March 19":y===2025?"On hiatus; reunion performance August 31":y===2026?"On hiatus; comeback teased in July":"On hiatus in "+y;
+ $("bio").innerHTML=`<h3 style="color:${m.c}">${m.n}</h3><p class="meta">${b.role}. Born ${b.born}</p>${b.txt.map(t=>"<p>"+t+"</p>").join("")}${st?'<span class="st" style="background:'+m.c+';color:#fff">'+st+'</span>':""}`}
+function update(){
+ const y=+$("yr").value;
+ $("lineup").innerHTML=members.map(m=>{const active=y>=m.from&&y<=m.end;return `<button class="m${active?"":" off"}" data-i="${m.i}" aria-expanded="${sel===m.i}" aria-label="${m.n}, show bio"><i style="background:${m.c}">${m.i}</i>${m.n.split(" ")[0]}</button>`}).join("");
+ showBio(y);
+ const n=members.filter(m=>y>=m.from&&y<=m.end).length;
+ $("s-mem").textContent=n;$("s-yr").textContent=count(y);$("s-cum").textContent=rel.filter(r=>r[0]<=y).length;
+ const [era,txt]=notes[y];$("note").innerHTML=`<span class="era">${era}</span> ${txt}`;
+ document.querySelectorAll("#yrs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.y==y));
+ $("chart").innerHTML=chart(y);table()}
+$("collab").innerHTML=[["Kid Ink","Worth It, 2015"],["Ty Dolla $ign","Work from Home, 2016"],["Fetty Wap","All in My Head (Flex), 2016"],["Gucci Mane","Down, 2017"],["French Montana","He Like That remix, 2017"],["Pitbull","Por Favor, 2017"],["Maluma","Sin Contrato, 2016 (lead artist)"],["Skrillex and Poo Bear","produced Angel"],["Boyce Avenue","Mirrors and When I Was Your Man covers, 2013"],["Juan Gabriel","Vienes o Voy, 2015"],["DNCE and friends","Santa Claus Is Coming to Town, 2016"]].map(c=>`<span><b>${c[0]}</b> ${c[1]}</span>`).join("");
+const rows=(id,a)=>$(id).innerHTML=a.map(r=>"<tr>"+r.map(c=>"<td>"+c+"</td>").join("")+"</tr>").join("");
+rows("vids",vid);rows("live",live);rows("awd",awd);
+const dc={};vid.forEach(v=>{if(v[2]!=="Not credited in source")v[2].split(" & ").forEach(d=>dc[d]=(dc[d]||0)+1)});
+const dmax=Math.max(...Object.values(dc));
+$("dirs").innerHTML=Object.entries(dc).sort((a,b)=>b[1]-a[1]).map(([n,c])=>`<div class="bar"><span>${n}</span><i style="width:${c/dmax*100}%"></i><b>${c}</b></div>`).join("");
+const ct=t=>rel.filter(r=>r[2]===t).length;
+$("tot").textContent=`${ct("single")} singles, ${ct("EP")} EPs, ${ct("album")} albums and ${ct("promo")} promotional singles, in order. Songs where the group is a featured artist are included as singles and say so in the note.`;
+update();
+</script>
+</body>
+</html>
